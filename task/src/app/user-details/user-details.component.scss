@@ -1,0 +1,11 @@
+@import '../../scss/variables';
+@import '../../scss/general';
+
+section.user-details{
+  p{
+    font-weight: bold;
+    span{
+      color:$secondaryColor;
+    }
+  }
+}

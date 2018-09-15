@@ -1,0 +1,14 @@
+@import '../../scss/variables';
+@import '../../scss/general';
+
+.header-bg{
+  // margin: 0 auto;
+    background-color: black;
+    a{
+      sub,sup{
+        color: $secondaryColor;
+        font-size:20px;
+      }
+
+    }
+}

@@ -1,0 +1,50 @@
+@import '../../scss/variables';
+@import '../../scss/general';
+
+section.panel{
+  min-height:78vh;
+    h3{
+      color:$secondaryColor;
+      font-weight: boldRaleway;
+    }
+    a.plus-sign{
+      color:$primaryColor;
+      text-decoration: none;
+      padding: 12px 21px;
+      background-color: $secondaryColor;
+      border:5px solid  $primaryColor;
+      border-radius: 50%;
+      font-size:20px;
+      position:fixed;
+      bottom:50px;
+      right:30px;
+    }
+
+    a.plus-sign:hover{
+      color:$secondaryColor;
+      border:5px solid  $secondaryColor;
+      background-color: transparent;
+    }
+    .user{
+      color:$primaryColor;
+      background-color:black;
+      padding:6px;
+      width:100%;
+      display:inline-block;
+      font-family:boldRaleway;
+      border:2px solid black;
+
+    }
+    .user:hover{
+      color:$secondaryColor;
+      background-color: $primaryColor;
+      border:2px solid $secondaryColor;
+
+    }
+
+    .user-list , .changable-section{
+      border:1px solid #e0e0e0;
+    }
+
+
+}

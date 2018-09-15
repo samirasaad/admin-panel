@@ -1,0 +1,26 @@
+<section class="panel container mt-5">
+   <a [routerLink]="['user-form']" class="plus-sign " title="Add New User">+</a>
+   <div class="row">
+      <div class="col-lg-4 col-md-5 col-12 pl-0">
+         <div class="user-list pt-2 pb-5">
+            <h3 class="text-center py-2">LIST OF USERS</h3>
+            <hr>
+            <div class=" mt-1"  *ngFor="let user of usersListWithOutAdmin" [id]="user._id">
+            <a class="user" [routerLink]="['user-details',user._id]">
+            {{user.name}}
+            </a>
+         </div>
+      </div>
+   </div>
+   <div class="changable-section col-lg-7 col-md-5 col-12 pl-0 ">
+      <h3 class="text-center mt-2 py-2"> USER DETAILS</h3>
+      <hr>
+      <router-outlet></router-outlet>
+   </div>
+   </div>
+</section>
+<!-- <ng-template #noData>
+   <section >
+   <h3 class="text-center">you should be logged in to see this page</h3>
+   </section>
+   </ng-template> -->

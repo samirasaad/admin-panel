@@ -1,0 +1,119 @@
+<section class="user-details pb-4">
+   <!--    USER`S DETAILS     -->
+   <div class="mt-3" *ngIf="!editFLag">
+      <div *ngIf="selectedUserDetails" >
+         <p class="ml-3"> <span>name : </span> {{selectedUserDetails.name}}</p>
+         <p class="ml-3"> <span>email : </span> {{selectedUserDetails.email}}</p>
+         <p class="ml-3"> <span>country : </span> {{selectedUserDetails.country}}</p>
+         <p class="ml-3"> <span>phone : </span> {{selectedUserDetails.phone}}</p>
+         <p class="ml-3"> <span>role : </span> {{selectedUserDetails.role}}</p>
+      </div>
+      <div class="text-center">
+         <button class="btn" (click)="edit()">Edit</button>
+         <button class="btn ml-5" (click)="delete()">Delete</button>
+      </div>
+   </div>
+   <!--     EDIT USER`S DETAILS   [USER FORM] -->
+   <div *ngIf="editFLag && !isUpdated">
+      <section class="edit-form container pb-4">
+         <form name="editingUserForm" #editingUserForm="ngForm" (ngSubmit)="saveChanges(editingUserForm)">
+         <!-- NAME -->
+         <div class="col-auto pl-0">
+            <div class="input-group mb-2">
+               <div class="input-group-prepend">
+                  <div class="input-group-text"></div>
+               </div>
+               <input type="text" class="form-control" name="name"
+               #name="ngModel"
+               placeholder="Name" [(ngModel)]="editedUserDetails.name" value="{{editedUserDetails.name}}" required>
+               <span *ngIf="!name.valid && name.touched "
+                  class="text-danger  font-weight-bold pl-1" >*</span>
+            </div>
+         </div>
+         <!-- COUNTRY -->
+         <div class="col-auto pl-0">
+            <div class="input-group mb-2">
+               <div class="input-group-prepend">
+                  <div class="input-group-text"></div>
+               </div>
+               <input type="text" class="form-control" name="country"
+               #country="ngModel"
+               placeholder="Country" [(ngModel)]="editedUserDetails.country" value="{{editedUserDetails.country}}" required>
+               <span *ngIf="!country.valid && country.touched "
+                  class="text-danger  font-weight-bold pl-1" >*</span>
+            </div>
+            <!-- {{editedUserDetails.country}} -->
+         </div>
+         <!-- <div class="col-auto pl-0">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text"></div>
+              </div>
+              <input type="text" class="form-control"  name="country" #country="ngModel"
+              placeholder="Country" [(ngModel)]="editedUserDetails.country" [value]="editedUserDetails.country" required>
+              <span *ngIf="!country.valid && country.touched "
+              class="text-danger  font-weight-bold pl-1" >*</span>
+            </div>
+            </div> -->
+         <!-- PHONE -->
+         <div class="col-auto pl-0">
+            <div class="input-group mb-2">
+               <div class="input-group-prepend">
+                  <div class="input-group-text"></div>
+               </div>
+               <input type="text" class="form-control"  name="phone" #phone="ngModel"
+               placeholder="Phone" [(ngModel)]="editedUserDetails.phone" value="{{editedUserDetails.phone}}" required>
+               <span *ngIf="!phone.valid && phone.touched "
+                  class="text-danger  font-weight-bold pl-1" >*</span>
+            </div>
+         </div>
+         <!-- password -->
+         <div class="col-auto pl-0">
+            <div class="input-group mb-2">
+               <div class="input-group-prepend">
+                  <div class="input-group-text"></div>
+               </div>
+               <input type="password" class="form-control" name="password"
+               #password="ngModel" placeholder="Passsword"
+               [(ngModel)]="editedUserDetails.password" value="{{editedUserDetails.password}}" required>
+               <span *ngIf="!password.valid && password.touched "
+                  class="text-danger  font-weight-bold pl-3" >*</span>
+            </div>
+         </div>
+         <!-- EMAIL -->
+         <div class="col-auto pl-0">
+            <label class="sr-only" >Email</label>
+            <div class="input-group mb-2">
+               <div class="input-group-prepend">
+                  <div class="input-group-text"></div>
+               </div>
+               <input type="email" class="form-control"  name="email" #email="ngModel" placeholder="Email"
+               [(ngModel)]="editedUserDetails.email" value="{{editedUserDetails.email}}" required>
+               <span *ngIf="!email.valid && email.touched "
+                  class="text-danger  font-weight-bold pl-1" >*</span>
+            </div>
+         </div>
+         <!-- ROLE -->
+         <div class="form-group">
+            <label class="font-weight-bold">Role</label>
+            <span *ngIf="!role.valid && role.touched " class="text-danger
+               font-weight-bold pl-3" >*</span>
+            <select class="form-control" name="role"   #role="ngModel"
+            [(ngModel)]="editedUserDetails.role" value="{{editedUserDetails.role}}" required>
+            <option value="" disabled selected>your role</option>
+            <option value="admin" selected>Admin</option>
+            <option value="user">User</option>
+            </select>
+         </div>
+         <div class="text-center">
+            <button [disabled]="!editingUserForm.valid" type="submit" class="btn">Save</button>
+            <button type="button" class="btn ml-5" (click)="back()">Cancel</button>
+         </div>
+         </form>
+      </section>
+   </div>
+   <!-- <div *ngIf="isDeleted">
+      <p>  user has been deleted </p>
+      </div> -->
+   <router-outlet></router-outlet>
+</section>

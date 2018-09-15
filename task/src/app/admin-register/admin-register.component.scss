@@ -1,0 +1,16 @@
+@import '../../scss/variables';
+@import '../../scss/general';
+section.admin-register{
+    min-height:80vh;
+    background-image: url('../../assets/images/photo-1536780767112-ab451520f064.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    h3{
+      font-weight: boldRaleway;
+      color:$secondaryColor;
+    }
+    hr{
+      width:50%;
+    }
+}

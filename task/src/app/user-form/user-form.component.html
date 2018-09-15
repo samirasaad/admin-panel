@@ -1,0 +1,82 @@
+<section class="user-form container pb-4">
+   <form  name="addingUserForm" #addingUserForm="ngForm" (ngSubmit)="addUser(addingUserForm)">
+   <div class="col-auto pl-0">
+      <div class="input-group mb-2">
+         <div class="input-group-prepend">
+            <div class="input-group-text"></div>
+         </div>
+         <input type="text" class="form-control" name="name"
+         #name="ngModel" placeholder="Name" [(ngModel)]="newUser.name" required>
+         <span *ngIf="!name.valid && name.touched "
+            class="text-danger  font-weight-bold pl-1" >*</span>
+      </div>
+   </div>
+   <div class="col-auto pl-0">
+      <label class="sr-only" >Phone</label>
+      <div class="input-group mb-2">
+         <div class="input-group-prepend">
+            <div class="input-group-text"></div>
+         </div>
+         <input type="text" class="form-control"  name="phone"
+         #phone="ngModel" placeholder="Phone" [(ngModel)]="newUser.phone" required>
+         <span *ngIf="!phone.valid && phone.touched "
+            class="text-danger  font-weight-bold pl-1" >*</span>
+      </div>
+   </div>
+   <div class="col-auto pl-0">
+      <label class="sr-only" >Country</label>
+      <div class="input-group mb-2">
+         <div class="input-group-prepend">
+            <div class="input-group-text"></div>
+         </div>
+         <input type="text" class="form-control"  name="country"
+         #country="ngModel" placeholder="Country" [(ngModel)]="newUser.country" required>
+         <span *ngIf="!country.valid && country.touched "
+            class="text-danger  font-weight-bold pl-1" >*</span>
+      </div>
+   </div>
+   <div class="col-auto pl-0">
+      <label class="sr-only" >Email</label>
+      <div class="input-group mb-2">
+         <div class="input-group-prepend">
+            <div class="input-group-text"></div>
+         </div>
+         <input type="email" class="form-control"  name="email"
+         #email="ngModel" placeholder="Email" [(ngModel)]="newUser.email" required>
+         <span *ngIf="!email.valid && email.touched "
+            class="text-danger  font-weight-bold pl-1" >*</span>
+      </div>
+   </div>
+   <div class="col-auto pl-0">
+      <div class="input-group mb-2">
+         <div class="input-group-prepend">
+            <div class="input-group-text"></div>
+         </div>
+         <input type="password" class="form-control" name="password"
+         #password="ngModel" placeholder="Passsword" [(ngModel)]="newUser.password" required>
+         <span *ngIf="!password.valid && password.touched "
+            class="text-danger  font-weight-bold pl-3" >*</span>
+      </div>
+   </div>
+   <div class="form-group">
+      <label class="font-weight-bold">Role</label>
+      <span *ngIf="!role.valid && role.touched " class="text-danger
+         font-weight-bold pl-3" >*</span>
+      <select class="form-control" name="role"   #role="ngModel"
+      [(ngModel)]="newUser.role" required>
+      <option value="" disabled selected  class="role">Role</option>
+      <option value="admin" selected>Admin</option>
+      <option value="user">User</option>
+      </select>
+   </div>
+   <div class="text-center">
+      <button [disabled]="!addingUserForm.valid" type="submit" class="btn mt-2" >Add user</button>
+      <button type="button" class="btn mt-2 ml-4" (click)="cancel()">Cancel</button>
+   </div>
+   </form>
+   <!-- <ng-template #userAdded>
+      <div>
+      <p>  user has been added </p>
+      </div>
+      </ng-template> -->
+</section>

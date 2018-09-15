@@ -1,0 +1,32 @@
+@font-face {
+    font-family: boldRaleway;
+    src: url(../../assets/fonts/raleway/Raleway-Bold.ttf);
+}
+
+a{
+  text-decoration:none;
+}
+.form-control{
+  width:50%;
+}
+
+button.btn{
+  color:$primaryColor;
+  background-color: black;
+  border-radius: 0;
+  border:2px solid black;
+  font-weight: bold;
+
+}
+
+button.btn:hover{
+  color:$secondaryColor;
+  border:2px solid $secondaryColor;
+  background-color: transparent;
+}
+.input-group-text{
+  background-color: $secondaryColor;
+}
+// ::placeholder{
+//   color:$secondaryColor;
+// }
